@@ -1,0 +1,3 @@
+SeekbarCircle : Create custom control with with circular shape radius can be increase and decrease programticaly placement should be same across all screens.
+Seekbar : Create custom control with round corner who's color could be change programmatically placement should be same across all screen.
+SeekbarCircle Movement: apply gesture on skeebar to move seekbar circle percentage should update
