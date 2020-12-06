@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 
+
 class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     var mShowText = false
@@ -19,6 +20,10 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
     var h = 0f
 
     var rectBodyColor = Color.RED
+
+    companion object{
+        const val TAG = "RangeSeekBar"
+    }
 
     init {
         context?.theme?.obtainStyledAttributes(
@@ -34,8 +39,8 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
             }
          }
 
-        Log.v("SHOW_TEXT",""+mShowText);
-        Log.v("SHOW_TEXT",""+textPos);
+        Log.d(TAG,mShowText.toString())
+        Log.d(TAG,textPos.toString())
     }
 
      fun updateColor(color: Int)
@@ -61,7 +66,7 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
         super.onDraw(canvas)
 
 
-        Log.v("SHOW_TEXT","drawing");
+        Log.d(TAG,"drawing")
 
 
          val reactPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
