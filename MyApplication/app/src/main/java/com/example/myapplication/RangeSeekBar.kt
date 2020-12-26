@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -24,6 +25,10 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
     var circleBodyColor = Color.GREEN
     var thumbBarHeight = 0f;
 
+    companion object{
+        const val TAG = "RangeSeekBar"
+    }
+
     init {
         context?.theme?.obtainStyledAttributes(
             attrs,
@@ -41,8 +46,8 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
             }
          }
 
-        Log.v("SHOW_TEXT",""+mShowText);
-        Log.v("SHOW_TEXT",""+textPos);
+        Log.d(TAG,mShowText.toString())
+        Log.d(TAG,textPos.toString())
     }
 
      fun updateColor(color: Int)
@@ -113,6 +118,11 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
+
+        Log.d(TAG,"drawing")
+
+
         Log.v("SHOW_TEXT","drawing");
          val reactPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
