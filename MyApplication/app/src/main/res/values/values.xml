@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="range_seekbar_height">20dp</dimen>
+    <dimen name="range_seekbar_width">50dp</dimen>
+    <dimen name="range_seekbar_padding_left">10dp</dimen>
+    <dimen name="range_seekbar_padding_right">10dp</dimen>
+    <dimen name="range_seekbar_padding_top">5dp</dimen>
+    <dimen name="range_seekbar_padding_bottom">5dp</dimen>
+    <dimen name="thumb_radius">10dp</dimen>
+    <dimen name="thumb_bar_height">2dp</dimen>
+
+
+
+</resources>
