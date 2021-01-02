@@ -22,11 +22,15 @@
         android:layout_width="match_parent"
          />
 
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></SeekBar>
 
         <Button
             android:layout_width="wrap_content"

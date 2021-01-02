@@ -1,17 +1,57 @@
 package com.example.myapplication
 
+import android.R.attr.path
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 
 
-class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
+class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attrs){
+
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val action = event.action and MotionEvent.ACTION_MASK
+        when (action) {
+            MotionEvent.ACTION_DOWN -> {
+                Log.v(TAG,"DOWN")
+                //Toast.makeText(context,"up",Toast.LENGTH_SHORT).show()
+                //this.thumbX+=10;
+                //invalidate()
+
+            }
+
+
+            MotionEvent.ACTION_MOVE -> {
+
+                this.thumbX=event.rawX;
+
+                Log.v(TAG,"DRAG"+event.rawX)
+                //invalidate()
+
+
+            }
+            MotionEvent.ACTION_UP -> {
+                Log.v(TAG,"UP")
+                //Toast.makeText(context,"up",Toast.LENGTH_SHORT).show()
+                //this.thumbX-=10;
+                //invalidate()
+
+            }
+
+
+        }
+        invalidate()
+
+        Log.v(TAG,"RETURN")
+        return true
+    }
+
 
     var mShowText = false
     var textPos = 0;
@@ -115,7 +155,7 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
             measureDimension(desiredHeight, heightMeasureSpec)
         )
     }
-
+    var thumbX = w
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -136,11 +176,12 @@ class RangeSeekBar(context: Context?, attrs: AttributeSet?) : View(context, attr
 
         }
 
+
         canvas.apply {
             //drawRect(xx, yy, getWidth().toFloat()-w, getHeight().toFloat()-h, reactPaint );
             drawRect(xx, getHeight()/2f-thumbBarHeight, getWidth().toFloat()-w, getHeight()/2f+thumbBarHeight, reactPaint );
-            drawCircle(w+thumRadius, getHeight()/2f, thumRadius, circlePaint);
-            //drawCircle(width.toFloat()-thumRadius+w, getHeight()/2f, thumRadius, circlePaint);
+            drawCircle(thumbX+thumRadius, getHeight()/2f, thumRadius, circlePaint);
+            drawCircle(thumRadius+thumbX+80, getHeight()/2f, thumRadius, circlePaint);
 
         }
     }
